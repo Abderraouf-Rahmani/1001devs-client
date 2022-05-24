@@ -1,0 +1,66 @@
+.header{
+    margin: 50px 0px;
+}
+.header > .container {
+    border-radius: 10px;
+    display: flex;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-darker);
+}
+.header-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+.header-title{
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--bg-lighter);
+}
+
+.header-desc {
+    color: var(--bg-light);
+    font-weight: 600;
+
+}
+
+.header-join-btn,
+.header-login-btn {
+    width: 140px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 0px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btns{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.header-join-btn{
+    background-color: blueviolet;
+    color: var(--bg-lighter);
+    border: 3px solid blueviolet;
+    transition: .1s ease-in-out;
+}
+.header-join-btn:hover{
+    background-color: rgb(87, 23, 146);
+    border: 2px solid rgb(87, 23, 146);
+
+}
+.header-login-btn{
+    border: 3px solid blueviolet;
+    background-color: var(--bg-darker);
+    color: var(--bg-lighter);
+    transition: .1s ease-in-out;
+}
+
+.header-login-btn:hover{
+    background-color: blueviolet;
+
+}

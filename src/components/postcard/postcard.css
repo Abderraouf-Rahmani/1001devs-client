@@ -1,0 +1,48 @@
+.post-card {
+   background-color: var(--bg-dark);
+    border: 2px solid white;
+    min-width:300px;
+    height: 300px;
+    transition: .2s ease-in-out;
+    margin: -1px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.post-card:hover{
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(219, 0, 0);
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
+.card-date{
+    margin-left: 10px;
+    color: var(--bg-light);
+    font-weight: 500;
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
+.card-desc-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.card-desc{
+    font-weight: 900;
+    font-size: 27px;
+    color: var(--bg-lighter);
+    text-align: center;
+}
