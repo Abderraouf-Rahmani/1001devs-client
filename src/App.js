@@ -1,9 +1,15 @@
-import Home from "./pages/home/Home.jsx"
+import Navbar from "./components/navbar/Navbar.jsx"
+//import Home from "./pages/home/Home.jsx"
+import Post from "./pages/post/Post.jsx"
+import Footer from "./components/footer/Footer.jsx"
 
 function App() {
   return (
     <div className="App">
-      <Home /> 
+      <Navbar />
+      <Post /> 
+      <Footer /> 
+      
     </div>
   );
 }

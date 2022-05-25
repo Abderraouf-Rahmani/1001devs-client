@@ -3,6 +3,7 @@
 }
 
 .navbar{
+  
     color: var(--bg-light);
     font-size: 20px;
     font-weight: 600;
@@ -10,9 +11,9 @@
     top: 0px;
     z-index: 999;
     background-color: var(--bg-dark);
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(79,79,79,1);
--moz-box-shadow: 0px 2px 5px 0px rgba(79,79,79,1);
-box-shadow: 0px 2px 5px 0px rgba(79,79,79,1);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
+-moz-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
+box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
     
 }
 

@@ -1,6 +1,6 @@
 .post-card {
    background-color: var(--bg-dark);
-    border: 2px solid white;
+    border: 2px solid var(--bg-light);
     min-width:300px;
     height: 300px;
     transition: .2s ease-in-out;
