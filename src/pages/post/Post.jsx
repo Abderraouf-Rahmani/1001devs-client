@@ -16,9 +16,8 @@ export default function Post() {
         </div>
 
           <div className="post-content">
-            <p>
-              This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.
-            </p>  
+            <h2>You know it!</h2>
+              <p>here's complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.</p>
           </div>
 
         
