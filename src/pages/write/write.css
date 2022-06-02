@@ -103,6 +103,9 @@
   color: rgb(0, 106, 211);
   background-color: rgb(215, 216, 244);
 }
+.responsive-search-icon{
+    display: none;
+}
 
 @media screen and (max-width: 730px) {
   .post-btns {
@@ -131,5 +134,10 @@
     padding-left: 20px;
     width: calc(100% - 40px);
   }
+
+  .responsive-search-icon{
+      display: flex;
+  }
+
   
 }

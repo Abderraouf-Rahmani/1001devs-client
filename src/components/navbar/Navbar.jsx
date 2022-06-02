@@ -45,7 +45,10 @@ export default function Navbar() {
 
         <div className="right">
           {/* IF THE USER IS LOGGED IN */}
-          <SearchIcon className="responsive-search-icon" />
+          <div className="responsive-search-icon ">
+
+          <SearchIcon />
+          </div>
           {isUser ? (
             <>
               <div className="primary-btn create-post-btn">Create Post</div>

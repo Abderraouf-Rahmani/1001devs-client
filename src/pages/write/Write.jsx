@@ -51,6 +51,44 @@ export default function Write() {
               tools={EDITOR_JS_TOOLS}
               onInitialize={handleInitialize}
               placeholder={"Write your content here..."}
+              defaultValue={
+                {
+                  "time" : 1654205545956,
+    "blocks" : [
+        {
+            "id" : "lSqG7OXlxX",
+            "type" : "header",
+            "data" : {
+                "text" : "Learn React with me ;)",
+                "level" : 2
+            }
+        },
+        {
+            "id" : "qKcaDIqTlz",
+            "type" : "paragraph",
+            "data" : {
+                "text" : "To learn react you need to be a GENUIS like ME, because it demand hight dedree of focus and unbelivable amount of patient, you may argue that it's not that big of a deal, but...  |"
+            }
+        },
+        {
+          "id" : "GEiKXIcF-O",
+          "type" : "header",
+          "data" : {
+              "text" : "Before we start",
+              "level": 2
+              
+          }
+        },
+        {
+          "id" : "GEiKXYcH-O",
+          "type" : "paragraph",
+          "data" : {
+              "text" : "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
+              
+          }
+        }
+                ]}
+              }
             />
           </div>
           <div className="post-btns">
