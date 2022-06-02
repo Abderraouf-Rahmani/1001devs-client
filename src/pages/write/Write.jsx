@@ -46,11 +46,13 @@ export default function Write() {
             className="tags"
             placeholder="Add up to 4 tags..."
           />
-          <EditorJsWrite
-            placeholder={"Write your post content here..."}
-            tools={EDITOR_JS_TOOLS}
-            onInitialize={handleInitialize}
-          />
+          <div className="editor-input">
+            <EditorJsWrite
+              tools={EDITOR_JS_TOOLS}
+              onInitialize={handleInitialize}
+              placeholder={"Write your content here..."}
+            />
+          </div>
           <div className="post-btns">
             <button className="publish-btn btn" type="submit">
               Publish

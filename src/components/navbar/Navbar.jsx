@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container">
         <div className="left">
-          <div className="nav-icon-container">
+          <div className="nav-icon-container burger-menu">
             <LunchDiningIcon className="nav-icon" />
           </div>
           <div className="nav-icon">
@@ -45,10 +45,10 @@ export default function Navbar() {
 
         <div className="right">
           {/* IF THE USER IS LOGGED IN */}
-
+          <SearchIcon className="responsive-search-icon" />
           {isUser ? (
             <>
-              <div className="primary-btn">Create Post</div>
+              <div className="primary-btn create-post-btn">Create Post</div>
               <div className="nav-icon-container">
                 <NotificationsNoneIcon className="nav-icon" />
               </div>

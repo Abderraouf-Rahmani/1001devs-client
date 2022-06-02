@@ -60,10 +60,14 @@
 }
 
 .nav-icon {
-  width: 40px;
+  width: 36px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
 }
+
 .nav-icon-container {
   overflow: hidden;
   width: 26px;
@@ -132,4 +136,27 @@
 
 .search-submit-btn:hover {
   background-color: #f3edfc;
+}
+.burger-menu {
+  display: none;
+}
+.responsive-search-icon {
+  display: none;
+}
+/* Responsivity */
+
+@media screen and (max-width: 730px) {
+  .burger-menu {
+    display: flex;
+  }
+  .nav-search-container {
+    display: none;
+  }
+
+  .responsive-search-icon {
+    display: block;
+  }
+  .create-post-btn {
+    display: none;
+  }
 }
