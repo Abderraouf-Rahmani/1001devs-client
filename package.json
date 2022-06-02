@@ -6,13 +6,12 @@
     "@editorjs/checklist": "^1.3.0",
     "@editorjs/code": "^2.7.0",
     "@editorjs/editorjs": "^2.24.3",
-    "@editorjs/embed": "2.5.1",
+    "@editorjs/embed": "^2.5.1",
     "@editorjs/header": "^2.6.2",
     "@editorjs/image": "^2.6.2",
     "@editorjs/inline-code": "^1.3.1",
     "@editorjs/link": "^2.4.1",
     "@editorjs/list": "^1.7.0",
-    "@editorjs/marker": "1.2.2",
     "@editorjs/paragraph": "^2.8.0",
     "@editorjs/quote": "^2.4.0",
     "@editorjs/raw": "^2.3.1",
@@ -20,8 +19,6 @@
     "@editorjs/table": "^2.0.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -40,17 +37,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": ["react-app", "react-app/jest"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

@@ -1,46 +1,135 @@
 * {
-    font-family: 'Fira code', monospace;
+  font-family: "Poppins", sans-serif;
 }
 
-.navbar{
-  
-    color: var(--bg-light);
-    font-size: 20px;
-    font-weight: 600;
-    position: sticky;
-    top: 0px;
-    z-index: 999;
-    background-color: var(--bg-dark);
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
--moz-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
-    
+.navbar {
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  background-color: var(--bg-dark);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
+  box-shadow: 0px 2px 5px 0px rgba(134, 133, 135, 0.2);
 }
 
 .navbar > .container {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
 }
 
 .left,
-.center,
 .right {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 20px;
 }
 
 .nav-item,
+.primary-btn,
 .nav-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.nav-item{
-    transition: .1s ease-in-out;
+.nav-item,
+.primary-btn {
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.nav-item {
+  padding: 9px 12px;
+}
+.primary-btn {
+  padding: 7px 10px;
+  border: 1px solid blueviolet;
+  color: darkblue;
 }
 
-.nav-item:hover{
-    background-color: var(--bg-lighter);
-    color: var(--bg-darker);
+.primary-btn:hover {
+  background-color: blueviolet;
+  color: white;
+  text-decoration: underline;
+}
+
+.nav-item:hover {
+  background-color: #ececec;
+  color: rgb(43, 100, 224);
+  text-decoration: underline;
+}
+
+.nav-icon {
+  width: 40px;
+  display: flex;
+  align-items: center;
+}
+.nav-icon-container {
+  overflow: hidden;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  outline: 1px solid blueviolet;
+}
+.profile-icon:hover {
+  outline: 2px solid blueviolet;
+}
+.profil-pic {
+  width: 80%;
+}
+
+.logo {
+  width: 100%;
+}
+
+.nav-search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  font-size: 1rem;
+  padding: 7px;
+  width: 350px;
+  height: 22px;
+  border: none;
+  outline: none;
+  outline: 1px solid lightgray;
+  border-radius: 4px;
+  margin-right: -37px;
+  transition: 0.1s ease-in-out;
+}
+
+.search:focus {
+  outline: 3px solid #aa8ed8;
+}
+
+.search:hover {
+}
+
+.search-submit-btn {
+  width: 37px;
+  height: 36px;
+  display: flex;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px 4px 4px 4px;
+  justify-content: center;
+  background-color: white;
+}
+
+.search-submit-btn:hover {
+  background-color: #f3edfc;
 }
