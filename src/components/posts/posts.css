@@ -40,7 +40,7 @@
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 720px) {
   .post-cards-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
