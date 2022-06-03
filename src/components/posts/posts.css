@@ -1,5 +1,48 @@
-.posts > .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.posts-filters {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  gap: 10px;
+  margin-left: -1px;
+}
+.post-filter {
+  font-size: 19px;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.post-filter:hover {
+  text-decoration: underline;
+  color: rgb(0, 106, 211);
+  background-color: rgb(255, 255, 255);
+}
+.chosen {
+  font-weight: 600;
+}
 
+.post-cards-container {
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1220px) {
+  .post-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .post-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .post-cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

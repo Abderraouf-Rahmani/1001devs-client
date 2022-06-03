@@ -103,8 +103,8 @@
   color: rgb(0, 106, 211);
   background-color: rgb(215, 216, 244);
 }
-.responsive-search-icon{
-    display: none;
+.responsive-search-icon {
+  display: none;
 }
 
 @media screen and (max-width: 730px) {
@@ -127,17 +127,15 @@
   }
 
   .title,
-  .tags,.editor-input
-   {
+  .tags,
+  .editor-input {
     margin: 30px 30px 0px 0px;
     padding-right: 20px;
     padding-left: 20px;
     width: calc(100% - 40px);
   }
 
-  .responsive-search-icon{
-      display: flex;
+  .responsive-search-icon {
+    display: flex;
   }
-
-  
 }

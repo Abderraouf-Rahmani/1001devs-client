@@ -1,15 +1,15 @@
 .header {
   background: linear-gradient(
     -45deg,
-    #5268e4 0%,
-    #5a55ae 13%,
-    #7b5fac 25%,
-    #8f6aae 38%,
-    #a86aa4 50%,
-    #cc6b8e 62%,
-    #f18271 75%,
-    #f3a469 87%,
-    #e7b211 100%
+    #8537a5 0%,
+    #8a39ab 13%,
+    #602777 25%,
+    #502162 38%,
+    #421b52 50%,
+    #3a1848 62%,
+    #361643 75%,
+    #220e2a 87%,
+    #0b050e 100%
   );
   background-size: 400% 400%;
   position: relative;
@@ -44,21 +44,24 @@
 .header-content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
   text-align: center;
 }
 .header-title {
-  font-weight: 900;
+  font-weight: 400;
   font-size: 60px;
-  color: var(--bg-darker);
+  color: white;
+  line-height: 50px;
 }
 .header-title > span {
   font-family: "Fira code", monospace;
+  font-weight: 900;
+  letter-spacing: -3px;
 }
 
 .header-desc {
-  color: lightgrey;
-  font-weight: 600;
+  color: white;
+  font-weight: 400;
   font-size: 25px;
 }
 
