@@ -7,7 +7,9 @@
     flex-direction: column;
     gap: 17px;
 }
-
+.search-card:hover{
+    background-color: rgb(248, 246, 249);
+}
 .search-card-header{
     display: flex;
     gap: 8px;
