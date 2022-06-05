@@ -4,6 +4,7 @@ import profilePic from "../../img/Troll-face.png";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   let isUser = true;
@@ -51,17 +52,21 @@ export default function Navbar() {
           </div>
           {isUser ? (
             <>
+            <Link  to="/write">
               <div className="primary-btn create-post-btn">Create Post</div>
+            </Link>
               <div className="nav-icon-container">
                 <NotificationsNoneIcon className="nav-icon" />
               </div>
-              <div className="profile-icon">
-                <img
-                  src={profilePic}
-                  alt="profile pic"
-                  className="profil-pic"
-                />
-              </div>
+              <Link to="/abdu" >
+                <div className="profile-icon">
+                  <img
+                    src={profilePic}
+                    alt="profile pic"
+                    className="profil-pic"
+                    />
+                </div>
+                  </Link>
             </>
           ) : (
             <>

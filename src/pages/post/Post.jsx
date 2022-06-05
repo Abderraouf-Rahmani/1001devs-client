@@ -1,8 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import "./post.css"
 
 export default function Post() {
-
+  const postId = useParams();
   return (
     <div className="post">
       <div className="container">
@@ -12,7 +13,7 @@ export default function Post() {
             <div className="post-tag">CSS</div>
             <div className="post-date">Aug, 31</div>
           </div>
-          <div className="post-title">You Suck at CSS FlexBox</div>
+          <div className="post-title">{postId.id}</div>
         </div>
 
           <div className="post-content">
