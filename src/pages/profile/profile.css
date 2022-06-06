@@ -10,7 +10,7 @@
   margin: 0px auto;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
 }
 
 .profile-header {
@@ -18,10 +18,11 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid lightgrey;
-  border-radius: 4px;
-  gap: 8px;
+  border-radius: 4px 4px 0px 0px;
+  gap: 15px;
   background-color: white;
-  padding-bottom: 58px;
+  text-align: center;
+  padding: 18px;
 }
 
 .profile-pic-container {
@@ -43,24 +44,42 @@
 
 .profile-infos {
   display: flex;
-  gap: 8px;
+  gap: 15px;
+}
+.settings-btn {
+  background-color: #f8f8f8;
+  max-width: 798px;
+  height: 50px;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: -16px;
+  border-radius: 0px 0px 4px 4px;
 }
 
-.skills {
+.settings-btn:hover {
+  background-color: rgb(243, 243, 243);
+}
+.skills-container {
   flex: 1.5;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-  overflow: hidden;
-  background-color: white;
-  padding: 18px;
-  flex-shrink: 1;
 }
+.skills {
+  border-radius: 4px;
+  padding: 18px;
+  border: 1px solid lightgrey;
 
+  background-color: white;
+}
 .post-hist {
   flex: 3;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
 }
 .skills-title {
   font-weight: 600;
@@ -68,4 +87,13 @@
 
 .the-skills p {
   font-size: 15px;
+}
+
+@media screen and (max-width: 680px) {
+  .profile-infos {
+    flex-direction: column;
+  }
+  .profile-container {
+    padding: 15px;
+  }
 }

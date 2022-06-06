@@ -22,14 +22,17 @@ export default function Profile() {
             <CakeIcon /> Joined on Aug 31, 2021
           </div>
         </div>
+        <div className="settings-btn">Edit profile</div>
         <div className="profile-infos">
-          <div className="skills">
-            <h3 className="skills-title">Skills/Languages</h3>
-            <div className="the-skills">
-              <p>
-                beside the obvious (HTML & CSS), JavaScript, React, NodeJs,
-                ExpressJs, MongoDB, MySQL.
-              </p>
+          <div className="skills-container">
+            <div className="skills">
+              <h3 className="skills-title">Skills/Languages</h3>
+              <div className="the-skills">
+                <p>
+                  beside the obvious (HTML & CSS), JavaScript, React, NodeJs,
+                  ExpressJs, MongoDB, MySQL.
+                </p>
+              </div>
             </div>
           </div>
           <div className="post-hist">
