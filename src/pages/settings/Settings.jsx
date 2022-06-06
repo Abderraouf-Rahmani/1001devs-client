@@ -48,7 +48,7 @@ export default function Settings() {
           </p>
           <textarea name="skills" id="skills" className="skills" />
         </div>
-        <button type="submit" className="settings-btn">
+        <button type="submit" className="setting-btn">
           Save profile informations
         </button>
       </form>

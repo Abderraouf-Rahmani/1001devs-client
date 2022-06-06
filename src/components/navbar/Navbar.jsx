@@ -25,9 +25,11 @@ export default function Navbar() {
           <div className="nav-icon-container burger-menu">
             <LunchDiningIcon className="nav-icon" />
           </div>
-          <div className="nav-icon">
-            <img className="logo" src={image} alt="logo" />
-          </div>
+          <Link to="/">
+            <div className="nav-icon">
+              <img className="logo" src={image} alt="logo" />
+            </div>
+          </Link>
           <div className="nav-search-container">
             <form action="#" className="nav-search-form">
               <input
@@ -47,26 +49,25 @@ export default function Navbar() {
         <div className="right">
           {/* IF THE USER IS LOGGED IN */}
           <div className="responsive-search-icon ">
-
-          <SearchIcon />
+            <SearchIcon />
           </div>
           {isUser ? (
             <>
-            <Link  to="/write">
-              <div className="primary-btn create-post-btn">Create Post</div>
-            </Link>
+              <Link to="/write">
+                <div className="primary-btn create-post-btn">Create Post</div>
+              </Link>
               <div className="nav-icon-container">
                 <NotificationsNoneIcon className="nav-icon" />
               </div>
-              <Link to="/abdu" >
+              <Link to="/abdu">
                 <div className="profile-icon">
                   <img
                     src={profilePic}
                     alt="profile pic"
                     className="profil-pic"
-                    />
+                  />
                 </div>
-                  </Link>
+              </Link>
             </>
           ) : (
             <>

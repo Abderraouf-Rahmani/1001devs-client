@@ -3,6 +3,7 @@ import "./profile.css";
 import SearchCard from "../../components/searchcard/SearchCard";
 import image from "../../img/Troll-face.png";
 import CakeIcon from "@mui/icons-material/Cake";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   return (
@@ -22,7 +23,9 @@ export default function Profile() {
             <CakeIcon /> Joined on Aug 31, 2021
           </div>
         </div>
-        <div className="settings-btn">Edit profile</div>
+        <Link to="/settings" style={{ textDecoration: "none" }}>
+          <div className="settings-btn">Edit profile</div>
+        </Link>
         <div className="profile-infos">
           <div className="skills-container">
             <div className="skills">
