@@ -1,6 +1,8 @@
 import React from "react";
 import "./posts.css";
 import Postcard from "../postcard/Postcard";
+import { Link } from "react-router-dom";
+import Button from "../button/Button";
 
 export default function Posts() {
   return (
@@ -21,6 +23,9 @@ export default function Posts() {
           <Postcard />
           <Postcard />
         </div>
+        <div className="rm-container">
+          <Button text='Read More >' targetLink='explore' />
+        </div> 
       </div>
     </div>
   );

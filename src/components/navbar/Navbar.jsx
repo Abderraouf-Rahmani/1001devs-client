@@ -1,10 +1,9 @@
 import "./navbar.css";
 import image from "../../img/logo.png";
 import profilePic from "../../img/Troll-face.png";
-import SearchIcon from "@mui/icons-material/Search";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import { Link } from "react-router-dom";
+import SearchBar from "../searchbar/SearchBar";
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function Navbar() {
   let isUser = true;
@@ -22,43 +21,30 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container">
         <div className="left">
-          <div className="nav-icon-container burger-menu">
-            <LunchDiningIcon className="nav-icon" />
-          </div>
           <Link to="/">
             <div className="nav-icon">
               <img className="logo" src={image} alt="logo" />
             </div>
           </Link>
           <div className="nav-search-container">
-            <form action="#" className="nav-search-form">
-              <input
-                type="text"
-                name="search"
-                id="search"
-                className="search"
-                placeholder="Search..."
-              />
-              <button type="submit" className="search-submit-btn">
-                <SearchIcon className="nav-icon" />
-              </button>
-            </form>
+
+          <SearchBar />
           </div>
         </div>
 
         <div className="right">
           {/* IF THE USER IS LOGGED IN */}
           <div className="responsive-search-icon ">
-            <SearchIcon />
+            <Link to='search'>
+              <SearchIcon />
+            </Link>
           </div>
           {isUser ? (
             <>
               <Link to="/write">
                 <div className="primary-btn create-post-btn">Create Post</div>
               </Link>
-              <div className="nav-icon-container">
-                <NotificationsNoneIcon className="nav-icon" />
-              </div>
+              <Link to='/login'>Log out</Link>
               <Link to="/abdu">
                 <div className="profile-icon">
                   <img

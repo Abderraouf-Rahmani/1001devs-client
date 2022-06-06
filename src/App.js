@@ -21,6 +21,10 @@ function App() {
         <Route path="update" element={<Write />} />
         <Route path="/:username" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="search" element={<Search />} />
+        <Route path="explore" element={<Search />} />
       </Routes>
       <Footer />
     </div>

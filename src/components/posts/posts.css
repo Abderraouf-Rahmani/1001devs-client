@@ -25,6 +25,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+.rm-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 
 @media screen and (max-width: 1220px) {
   .post-cards-container {

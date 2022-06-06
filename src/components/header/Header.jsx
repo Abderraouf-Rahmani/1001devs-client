@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 export default function Header() {
@@ -11,8 +12,8 @@ export default function Header() {
           </div>
           <div className="header-desc">Join us and let's learn togather :)</div>
           <div className="btns">
-            <button className="header-join-btn">Join US</button>
-            <button className="header-login-btn">Login</button>
+            <Link to='register' ><button className="header-join-btn">Join US  </button></Link>
+            <Link to='login'><button className="header-login-btn">Login</button></Link>
           </div>
         </div>
       </div>
