@@ -1,10 +1,9 @@
 import React from "react";
 import "./posts.css";
 import Postcard from "../postcard/Postcard";
-import { Link } from "react-router-dom";
 import Button from "../button/Button";
 
-export default function Posts() {
+export default function Posts({posts}) {
   return (
     <div className="posts">
       <div className="container">
@@ -14,14 +13,9 @@ export default function Posts() {
           <div className="post-filter">Top</div>
         </div>
         <div className="post-cards-container">
-          <Postcard />
-          <Postcard />
-          <Postcard />
-          <Postcard />
-          <Postcard />
-          <Postcard />
-          <Postcard />
-          <Postcard />
+          {posts.map(p=>(
+            <Postcard key={p._id} post={p} />
+          ))}
         </div>
         <div className="rm-container">
           <Button text='Read More >' targetLink='explore' />
