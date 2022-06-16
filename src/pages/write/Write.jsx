@@ -1,32 +1,51 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback,useState,  Component} from "react";
+import axios from "axios"
 import "./write.css";
-import { createReactEditorJS } from "react-editor-js";
+import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
-const EditorJsWrite = createReactEditorJS();
-export default function Write() {
-  const editorCore = React.useRef(null);
+import { data } from "./data";
 
-  const handleInitialize = React.useCallback((instance) => {
-    editorCore.current = instance;
-    console.log("sdfgsdfgsdfg");
-  }, []);
 
-  const handleSave = React.useCallback(async () => {
-    const savedData = await editorCore.current.save();
-    console.log(savedData.blocks);
-  }, []);
+const Write = ()=>{
+  const [title, setTitle] = useState('');
+  const [categories, setCategories] = useState('');
+  let editor = null;
+
+
+
+  const onSave = async (e) => {
+    e.preventDefault()
+    // https://editorjs.io/saving-data
+    try {
+      const outputData = await editor.save()
+      //console.log('Article data: ', postContent)
+      publish(outputData)
+    } catch (e) {
+      console.log('Saving failed: ', e)
+    }
+  }
+
+  const publish = (postBody)=>{
+    axios.post('/posts/write',{
+      username: 'Abdu',
+      title: title,
+      desc: postBody,
+      categories:categories.replace(/ /g, "").split(',')
+    }).then((res)=>console.log(res))
+  }
+
+  const onChange = () => {
+    // https://editorjs.io/configuration#editor-modifications-callback
+    console.log("Now I know that Editor's content changed!")
+  }
 
   return (
     <div className="write">
       <div className="write-container-header">
         <div className="left">Create Pose</div>
         <div className="right">
-          <div className="header-ops" id="edit">
-            Edit
-          </div>
-          <div onClick={handleSave} className="header-ops" id="preview">
-            Preview
-          </div>
+          
+          
         </div>
       </div>
 
@@ -38,6 +57,7 @@ export default function Write() {
             id="title"
             className="title"
             placeholder="New post title here..."
+            onChange={e=>setTitle(e.target.value)}
           />
           <input
             type="text"
@@ -45,53 +65,32 @@ export default function Write() {
             id="tags"
             className="tags"
             placeholder="Add up to 4 tags..."
+            onChange={e=>setCategories(e.target.value)}
           />
           <div className="editor-input">
-            <EditorJsWrite
-              tools={EDITOR_JS_TOOLS}
-              onInitialize={handleInitialize}
-              placeholder={"Write your content here..."}
-              defaultValue={{
-                time: 1654205545956,
-                blocks: [
-                  {
-                    id: "lSqG7OXlxX",
-                    type: "header",
-                    data: {
-                      text: "Learn React with me ;)",
-                      level: 2
-                    }
-                  },
-                  {
-                    id: "qKcaDIqTlz",
-                    type: "paragraph",
-                    data: {
-                      text:
-                        "To learn react you need to be a GENUIS like ME, because it demand hight dedree of focus and unbelivable amount of patient, you may argue that it's not that big of a deal, but...  |"
-                    }
-                  },
-                  {
-                    id: "GEiKXIcF-O",
-                    type: "header",
-                    data: {
-                      text: "Before we start",
-                      level: 2
-                    }
-                  },
-                  {
-                    id: "GEiKXYcH-O",
-                    type: "paragraph",
-                    data: {
-                      text:
-                        "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
-                    }
-                  }
-                ]
-              }}
-            />
+
+
+
+
+          <EditorJs
+          tools={EDITOR_JS_TOOLS}
+          data={data}
+          onChange={onChange}
+          holder="custom-editor-container"
+          editorInstance={editorInstance => {
+            editor = editorInstance
+          }}
+        />
+
+
+
+
           </div>
           <div className="post-btns">
-            <button className="publish-btn btn" type="submit">
+  
+            <button
+            onClick={onSave}
+            className="publish-btn btn" type="submit">
               Publish
             </button>
             <button className="draft-btn btn" type="submit">
@@ -103,3 +102,6 @@ export default function Write() {
     </div>
   );
 }
+
+
+export default Write

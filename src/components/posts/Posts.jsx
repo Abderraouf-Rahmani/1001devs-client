@@ -13,7 +13,7 @@ export default function Posts({posts}) {
           <div className="post-filter">Top</div>
         </div>
         <div className="post-cards-container">
-          {posts.map(p=>(
+          {posts?.map(p=>(
             <Postcard key={p._id} post={p} />
           ))}
         </div>
