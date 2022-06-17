@@ -74,8 +74,6 @@ const Write = ()=>{
 
           <EditorJs
           tools={EDITOR_JS_TOOLS}
-          data={data}
-          onChange={onChange}
           holder="custom-editor-container"
           editorInstance={editorInstance => {
             editor = editorInstance
