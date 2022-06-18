@@ -9,7 +9,7 @@
 .post-details{
     display: flex;
     gap: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .post-tag{
@@ -19,29 +19,49 @@
 }
 
 .post-title{
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 900;
     line-height: 51px;
     word-spacing: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 7px;
 }
 
 .post-content{
-    font-family: 'Poppins', sans-serif;
-    font-size: 21px;
-    font-weight: medium;
-    line-height: 34px;
-    word-spacing: 22px;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 19px;
+   
 }
+
+.post-content > pre {
+    max-width: 700px;
+    overflow-x: scroll;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    color: lightgray;
+    background-color: #161B22;
+    padding: 20px 0px 20px 20px;
+    margin: 30px 0px;
+}
+
+.post-content > pre::-webkit-scrollbar {
+    width: 50px;
+}
+
+.post-content > pre::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+
+
+  .post-content > pre::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+
+  .post-content > pre::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 
 .post-content > h2 {
     margin-bottom: 20px;
 }
 
-.post-content > p::first-letter {
-    text-transform: uppercase;
-    font-size: 43px;
-    color: rgb(200, 121, 84);
-    font-weight: 500;
-    letter-spacing: 6px;
-}

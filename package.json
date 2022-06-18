@@ -27,6 +27,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "editorjs-html": "^3.4.2",
+    "editorjs-react-renderer": "^3.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
