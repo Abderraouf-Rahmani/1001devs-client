@@ -28,7 +28,7 @@ const Write = ()=>{
   const publish = (postBody)=>{
     axios.post('/posts/write',{
       username: 'Abdu',
-      title: title,
+      title: title.replace('?', ""),
       desc: postBody,
       categories:categories.replace(/ /g, "").split(',')
     }).then((res)=>console.log(res))

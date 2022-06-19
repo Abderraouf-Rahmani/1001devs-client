@@ -53,3 +53,48 @@ input:focus {
 .login-btn:focus {
   outline: 4px solid rgb(196, 184, 201);
 }
+
+
+.error {
+  color: rgb(255, 98, 98);
+  font-weight: 500;
+  width: 100%;
+  background-color: rgb(255, 231, 231);
+  text-decoration: underline;
+  border-left: 4px solid red;
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 4px;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.link {
+  color: #1a0dab;
+}
+
+.link:hover{
+  text-decoration: underline;
+}
+
+.UX-msg {
+  margin-top: -20px;
+  font-weight: 500;
+}

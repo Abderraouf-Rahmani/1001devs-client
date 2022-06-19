@@ -9,18 +9,19 @@ import Write from "./pages/write/Write.jsx";
 import Search from "./pages/search/Search.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import Settings from "./pages/settings/Settings.jsx";
-
+  const user = false
 function App() {
+  
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
         <Route path="read/:title" element={<Post />} />
-        <Route path="write" element={<Write />} />
-        <Route path="update" element={<Write />} />
+        <Route path="write" element={user ? <Write />: <Login />} />
+        <Route path="update" element={user ? <Write />: <Login />} />
         <Route path="/:username" element={<Profile />} />
-        <Route path="settings" element={<Settings />} />
+        <Route path="settings" element={user ? <Settings />: <Login />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="search" element={<Search />} />
