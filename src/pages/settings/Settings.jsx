@@ -1,4 +1,5 @@
 import React from "react";
+import image from "./../../img/Troll-face.png"
 import "./settings.css";
 export default function Settings() {
   return (
@@ -37,7 +38,13 @@ export default function Settings() {
           />
           <div className="profile-pic-settings">
             <label htmlFor="pic">Profile image</label>
-            <input type="file" name="pic" id="pic" />
+
+            <div className="uploader-section">
+              <div className="pic-placeholder-container">
+                <img src={image} alt="picture of this user" />
+              </div>
+              <input type="file" name="pic" id="pic" />
+            </div>
           </div>
         </div>
         <div className="skills-settings">

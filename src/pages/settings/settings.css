@@ -62,3 +62,25 @@ input {
 .setting-btn:hover {
   background-color: rgb(243, 243, 243);
 }
+
+.pic-placeholder-container img{
+  width: 80%;
+}
+
+.pic-placeholder-container{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid rgb(95, 31, 155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.uploader-section{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
