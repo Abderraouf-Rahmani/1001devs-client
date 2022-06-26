@@ -44,8 +44,26 @@ input:focus {
   border-radius: 4px;
   outline: none;
   transform: 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
 }
 
+.loader {
+  animation: loading 1s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes loading {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+  }
+}
 .login-btn:hover {
   background-color: rgb(111, 18, 186);
 }
@@ -54,6 +72,9 @@ input:focus {
   outline: 4px solid rgb(196, 184, 201);
 }
 
+.login-btn:disabled{
+  cursor:not-allowed;
+}
 
 .error {
   color: rgb(255, 98, 98);

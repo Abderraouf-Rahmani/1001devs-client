@@ -4,19 +4,15 @@ import profilePic from "../../img/Troll-face.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/SearchBar";
 import SearchIcon from '@mui/icons-material/Search';
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 export default function Navbar() {
-  let isUser = true;
-  let isPhoneView = false;
-  const handleRes = () => {
-    if (window.innerWidth < 730) {
-      isPhoneView = true;
-      console.log("ppp");
-    } else {
-      isPhoneView = false;
-    }
-  };
-  window.onresize = handleRes;
+  const {user, dispatch} = useContext(Context)
+  const handleLogout = ()=>{
+    dispatch({type: "LOGOUT"})
+    window.location.href = "/login";
+  }
   return (
     <nav className="navbar">
       <div className="container">
@@ -39,12 +35,12 @@ export default function Navbar() {
               <SearchIcon />
             </Link>
           </div>
-          {isUser ? (
+          {user ? (
             <>
               <Link to="/write">
                 <div className="primary-btn create-post-btn">Create Post</div>
               </Link>
-              <Link to='/login'>Log out</Link>
+              <div className="nav-item" onClick={handleLogout}>Log out</div>
               <Link to="/abdu">
                 <div className="profile-icon">
                   <img
@@ -57,8 +53,12 @@ export default function Navbar() {
             </>
           ) : (
             <>
+            <Link to="/login">
               <div className="nav-item">Log in</div>
+            </Link>
+            <Link to="/register">
               <div className="primary-btn">Create account</div>
+            </Link>
             </>
           )}
         </div>
