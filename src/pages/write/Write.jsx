@@ -4,6 +4,7 @@ import "./write.css";
 import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
 import { data } from "./data";
+import notification from "../../util/utils";
 
 
 const Write = ()=>{
@@ -31,7 +32,10 @@ const Write = ()=>{
       title: title.replace('?', ""),
       desc: postBody,
       categories:categories.replace(/ /g, "").split(',')
-    }).then((res)=>console.log(res))
+    }).then((res)=>{
+      //console.log(res)
+      notification('your post has been submited ;)')
+    })
   }
 
   const onChange = () => {
@@ -96,6 +100,12 @@ const Write = ()=>{
             </button>
           </div>
         </form>
+      </div>
+      <div id="notify">
+        <div id="msg-container">
+          placeholder
+        </div>
+        <div className="progress"></div>
       </div>
     </div>
   );
