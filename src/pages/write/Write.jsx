@@ -33,15 +33,12 @@ const Write = ()=>{
       desc: postBody,
       categories:categories.replace(/ /g, "").split(',')
     }).then((res)=>{
-      //console.log(res)
-      notification('your post has been submited ;)')
+      console.log(res)
+      notification('your post has been submited ;)', "error")
     })
   }
 
-  const onChange = () => {
-    // https://editorjs.io/configuration#editor-modifications-callback
-    console.log("Now I know that Editor's content changed!")
-  }
+  
 
   return (
     <div className="write">
@@ -101,12 +98,7 @@ const Write = ()=>{
           </div>
         </form>
       </div>
-      <div id="notify">
-        <div id="msg-container">
-          placeholder
-        </div>
-        <div className="progress"></div>
-      </div>
+      
     </div>
   );
 }

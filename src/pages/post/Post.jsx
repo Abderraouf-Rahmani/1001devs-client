@@ -6,43 +6,49 @@ import PostContent from "./PostContent";
 
 
 export default function Post() {
-  const postTitle = useParams();
-  const GET_POST_URL = `/posts/read/${postTitle.title}/`
-  const [post, setPost] = useState(undefined)
-
-  useEffect(()=>{axios
+  const postId = useParams();
+  const GET_POST_URL = `/posts/read/${postId.id}/`
+  const [thePost, setThePost] = useState(undefined)
+  const [isFetching, setIsFetching] = useState(false)
+  let post;
+  
+  useEffect(()=>{
+    setIsFetching(true)
+    const getPost = ()=>{
+      axios
     .get(GET_POST_URL)
     .then((res)=>{
     const postData = res.data;
-    setPost(postData)
-    
+    post = postData
+    setThePost(post)
+    console.log(post)
   })
   .catch((err)=>{
     console.log(err)
   })
+  .finally(()=>{
+    setIsFetching(false)
+  })
+    }
+    getPost()
 },[])
 
+  if(isFetching) {
+    return <h1>Loading...</h1>
+  }
 
   return (
     
-    post?.map((p, i)=>(
-      <div key={p._id} className="post" >
-      <div className="container">
-        
-        <div className="post-header">
-          <div className="post-title">{p.title}</div>
-          <div className="post-details">
-            <div className="post-tag">{p.categories[0]}</div>
-            <div className="post-date">{p.createdAt}</div>
-          </div>
-        </div>
+    thePost?.map((p)=>(
+      
 
-        <PostContent desc={p.desc} />
+        <PostContent details={p} />
         
-      </div>
-    </div>
-            ))
+      
+    
             )
+             ))
+            
             
             
           }

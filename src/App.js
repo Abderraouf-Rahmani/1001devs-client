@@ -20,7 +20,7 @@ function App() {
 
       <Routes>
         <Route index element={<Home />} />
-        <Route path="read/:title" element={<Post />} />
+        <Route path="read/:id" element={<Post />} />
         <Route path="write" element={user ? <Write />: <Login />} />
         <Route path="update" element={user ? <Write />: <Login />} />
         <Route path="/:username" element={<Profile />} />

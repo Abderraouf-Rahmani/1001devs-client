@@ -7,7 +7,7 @@ export default function Postcard({post}) {
   let month = new Date(post.createdAt).getMonth().toString()
   let year = new Date(post.createdAt).getUTCFullYear().toString() === new Date().getFullYear().toString() ? '': new Date(post.createdAt).getUTCFullYear().toString()
   return (
-    <Link to={`/read/${post.title.split(' ').join('-')}`} >
+    <Link to={`/read/${post._id}`} >
       <div className="post-card">
         <div className="card-header">
           <div className="card-title">{post.categories[0]}</div>
