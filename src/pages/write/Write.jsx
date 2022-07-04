@@ -1,19 +1,50 @@
-import React, { useRef, useCallback,useState,  Component} from "react";
+import React, {useState,  useContext} from "react";
 import axios from "axios"
 import "./write.css";
 import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
 import { data } from "./data";
 import notification from "../../util/utils";
+import { Context } from "../../context/Context";
+import { useEffect } from "react";
+
 
 
 const Write = ()=>{
+  const {user} = useContext(Context)
   const [title, setTitle] = useState('');
+  const [isLoading, setIsLoading] = useState(true)
+  const [post, setPost] = useState([])
   const [categories, setCategories] = useState('');
   let editor = null;
+  
+  const queryParams =new URLSearchParams(window.location.search)
+  const postId = queryParams.get("edit")
+  
+  //console.log(postId)
 
-
-
+    useEffect(()=>{
+      if (postId){
+        try{
+          setIsLoading(true)
+          const titleInput = document.getElementById('title')
+          const tagsInput = document.getElementById('tags')
+          const getPostToUpdate = async () => {
+            const postToUpdate = await axios.get(`/posts/read/${postId}`)
+            setPost(postToUpdate.data)
+          setIsLoading(false)
+          titleInput.value = postToUpdate.data.title
+          tagsInput.value = postToUpdate.data.tags
+          
+          }
+          getPostToUpdate()
+        }catch(err){
+          console.log(err)
+        }
+      }
+    },[])
+    
+    !isLoading && console.log(post.desc[0].blocks[0])
   const onSave = async (e) => {
     e.preventDefault()
     // https://editorjs.io/saving-data
@@ -27,8 +58,9 @@ const Write = ()=>{
   }
 
   const publish = (postBody)=>{
-    axios.post('/posts/write',{
-      username: 'Abdu',
+    if(isLoading){
+      axios.post('/posts/write',{
+      username: user.username,
       title: title.replace('?', ""),
       desc: postBody,
       categories:categories.replace(/ /g, "").split(',')
@@ -36,12 +68,22 @@ const Write = ()=>{
       //console.log(res)
       notification('your post has been submited ;)')
     })
+  }else{
+
+    axios.put(`/posts/${postId}`,{
+      username: user.username,
+      title: title.replace('?', ""),
+      desc: postBody,
+      categories:categories.replace(/ /g, "").split(',')
+    }).then((res)=>{
+      //console.log(res)
+      notification('your post has been updated ;)')
+    })
+
+  }
   }
 
-  const onChange = () => {
-    // https://editorjs.io/configuration#editor-modifications-callback
-    console.log("Now I know that Editor's content changed!")
-  }
+  
 
   return (
     <div className="write">
@@ -74,16 +116,23 @@ const Write = ()=>{
           <div className="editor-input">
 
 
-
-
-          <EditorJs
+          
+          {!isLoading && (<EditorJs
           tools={EDITOR_JS_TOOLS}
+          holder="custom-editor-container"
+          data={post.desc[0]}
+          placeholder='Write your post content here...'
+          editorInstance={editorInstance => {
+            editor = editorInstance
+          }}/>) }
+
+          {isLoading && (<EditorJs
+          tools={EDITOR_JS_TOOLS}
+          placeholder='write your post content here...'
           holder="custom-editor-container"
           editorInstance={editorInstance => {
             editor = editorInstance
-          }}
-        />
-
+          }}/>) }
 
 
 
@@ -95,9 +144,7 @@ const Write = ()=>{
             className="publish-btn btn" type="submit">
               Publish
             </button>
-            <button className="draft-btn btn" type="submit">
-              Save Draft
-            </button>
+           
           </div>
         </form>
       </div>

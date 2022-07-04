@@ -11,10 +11,8 @@ export default function PostContent({desc}) {
         const html = edjsParser.parse(desc[0]);
         const conContainer = document.getElementById('post-content')
         conContainer.innerHTML = html.join('');
-        console.log(html.join(''))
     },[])
 
-   console.log(desc)
   return (
     <div className="post-content" id="post-content">
 

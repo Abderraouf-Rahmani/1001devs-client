@@ -16,6 +16,7 @@
     font-size: 18px;
     color: rgb(165, 60, 60);
     font-weight: 600;
+    margin-bottom: 90px;
 }
 
 .post-title{
@@ -65,3 +66,60 @@
     margin-bottom: 20px;
 }
 
+
+
+.post-header{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-owner-infos{
+    display: flex;
+    gap: 10px;
+}
+
+.post-owner-name{
+    font-weight: 600;
+}
+
+
+.post-owner-pic {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(90, 70, 95);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-owner-pic > img {
+    width: 100%;
+}
+.owner-actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.owner-actions > span {
+    padding: 5px 7px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.delete-btn:hover{
+    background-color: rgb(246, 98, 98);
+    color: white;
+    text-decoration: underline;
+}
+
+.edit-btn:hover{
+    background-color: rgb(223, 226, 232);
+    color: rgb(86, 86, 201);
+    text-decoration: underline;
+}
