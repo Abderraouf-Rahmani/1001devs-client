@@ -2,12 +2,18 @@ import React from "react";
 import image from "./../../img/Troll-face.png"
 import "./settings.css";
 export default function Settings() {
+
+  const handleUpdate = (e)=>{
+    e.preventDefault()
+    
+  }
+
   return (
     <div className="settings">
       <div className="page-title">
         <h1>Settings</h1>
       </div>
-      <form className="setting-form" action="#">
+      <form className="setting-form" action="#" onSubmit={handleUpdate}>
         <div className="user-settings">
           <h2>User</h2>
           <label htmlFor="name">Name</label>
