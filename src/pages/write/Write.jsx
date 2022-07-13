@@ -1,16 +1,16 @@
-import React, {useState,  useContext} from "react";
+import React, {useState,  useContext, useRef, useEffect} from "react";
 import axios from "axios"
 import "./write.css";
 import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
-import { data } from "./data";
 import notification from "../../util/utils";
 import { Context } from "../../context/Context";
-import { useEffect } from "react";
 
 
 
 const Write = ()=>{
+  const titleRef = useRef()
+  const CategoriesRef = useRef()
   const {user} = useContext(Context)
   const [title, setTitle] = useState('');
   const [isLoading, setIsLoading] = useState(true)
@@ -32,10 +32,12 @@ const Write = ()=>{
           const getPostToUpdate = async () => {
             const postToUpdate = await axios.get(`/posts/read/${postId}`)
             setPost(postToUpdate.data)
+            console.log(postToUpdate.data)
           setIsLoading(false)
           titleInput.value = postToUpdate.data.title
-          tagsInput.value = postToUpdate.data.tags
-          
+          tagsInput.value = postToUpdate.data.categories
+          setCategories(postToUpdate.data.categories)
+          setTitle(postToUpdate.data.title)
           }
           getPostToUpdate()
         }catch(err){
@@ -72,9 +74,9 @@ const Write = ()=>{
 
     axios.put(`/posts/${postId}`,{
       username: user.username,
-      title: title.replace('?', ""),
+      title: titleRef.current.value.replace('?', ""),
       desc: postBody,
-      categories:categories.replace(/ /g, "").split(',')
+      categories:CategoriesRef.current.value.replace(/ /g, "").split(',')
     }).then((res)=>{
       //console.log(res)
       notification('your post has been updated ;)')
@@ -104,6 +106,7 @@ const Write = ()=>{
             className="title"
             placeholder="New post title here..."
             onChange={e=>setTitle(e.target.value)}
+            ref= {titleRef}
           />
           <input
             type="text"
@@ -112,6 +115,8 @@ const Write = ()=>{
             className="tags"
             placeholder="Add up to 4 tags..."
             onChange={e=>setCategories(e.target.value)}
+            ref= {CategoriesRef}
+
           />
           <div className="editor-input">
 

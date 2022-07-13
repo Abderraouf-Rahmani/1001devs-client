@@ -1,7 +1,9 @@
 import React from 'react'
 import './searchcard.css'
 import image from '../../img/Troll-face.png'
-export default function SearchCard() {
+import formatDate from '../../util/toFormatedDate'
+import { Link } from 'react-router-dom'
+export default function SearchCard({title, username, categories, t, id}) {
   return (
     <div className="search-card">
         <div className="search-card-header">
@@ -9,17 +11,24 @@ export default function SearchCard() {
                 <img src={image} alt="author" className='author-pic'/>
             </div>
             <div className="author-infos">
-                <div className="author-name">Abderraouf Rahmani</div>
-                <div className="post-date">Aug, 31</div>
+                <div className="author-name">{username}</div>
+                <div className="post-date">{formatDate(t)}</div>
             </div>
         </div>
         <div className="search-card-content">
-          <h1 className="search-card-title">You Suck at CSS FlexBox, Hear Me Out!</h1>
+          <h1 className="search-card-title">
+          <Link to={`/read/${id}`} >
+
+            {title}
+          </Link>
+
+          </h1>
           <div className="search-card-tags">
-            <span className="search-tag">#CSS</span>
-            <span className="search-tag">#HTML</span>
-            <span className="search-tag">#1001</span>
-            <span className="search-tag">#DEVs</span>
+            {categories.map(c  =>(
+              <span className="search-tag">#{c}</span>
+
+            ))}
+            
           </div>
         </div>
 
