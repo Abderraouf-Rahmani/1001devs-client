@@ -4,8 +4,9 @@ import profilePic from "../../img/Troll-face.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/SearchBar";
 import SearchIcon from '@mui/icons-material/Search';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../../context/Context";
+import Pic from './../pic/Pic.jsx'
 
 export default function Navbar() {
   const {user, dispatch} = useContext(Context)
@@ -13,6 +14,9 @@ export default function Navbar() {
     dispatch({type: "LOGOUT"})
     window.location.href = "/login";
   }
+ 
+ 
+  
   return (
     <nav className="navbar">
       <div className="container">
@@ -38,16 +42,12 @@ export default function Navbar() {
           {user ? (
             <>
               <Link to="/write">
-                <div className="primary-btn create-post-btn">Create Post</div>
+                <div className="primary-btn create-post-btn"><span>Create Post</span></div>
               </Link>
               <div className="nav-item" onClick={handleLogout}>Log out</div>
-              <Link to="/abdu">
+              <Link to={`/${user._id}`}>
                 <div className="profile-icon">
-                  <img
-                    src={profilePic}
-                    alt="profile pic"
-                    className="profil-pic"
-                  />
+                  <Pic username={user.username} />
                 </div>
               </Link>
             </>

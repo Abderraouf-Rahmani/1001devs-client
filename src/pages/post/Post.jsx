@@ -5,6 +5,8 @@ import "./post.css"
 import PostContent from "./PostContent";
 import { Context } from "../../context/Context";
 import formatDate from "../../util/toFormatedDate";
+import DeleteBtn from "../../components/deleteButton/DeleteBtn";
+import Pic from '../../components/pic/Pic.jsx'
 
 
 export default function Post() {
@@ -33,6 +35,9 @@ export default function Post() {
     getPost()
 },[])
 
+  if(isLoading) {
+    return <h1>Loading...</h1>
+  }
 
 
   
@@ -44,39 +49,45 @@ if(!isLoading) return (
         <div className="post-header">
           <div className="post-infos">
             <div className="post-owner-infos">
-                <Link to={`/${p.username}`}>
+                <Link to={`/${p.userid}`}>
               <div className="post-owner-pic">
-                <img src="https://www.nicepng.com/png/detail/7-72350_cat-lol-l-cat-troll-face-png.png" alt="pic" />
+                <Pic username={p.username} />
               </div>
                 </Link>
               <div>
-                <Link to={`/${p.username}`}>
+                <Link to={`/${p.userid}`}>
                 <div className="post-owner-name">{p.username}</div>
                 </Link>
                 <div className="post-date">{'posted on ' + formatDate(p.createdAt)}</div>
               </div>
             </div>
           </div>
-            {user.username === p.username && <>
+            {(user && user.username === p.username) && <>
               <div className="owner-actions">
                 <Link to={`/write?edit=${p._id}`}>
                   <span className="edit-btn">Edit</span>
                 </Link>
-                <span  className="delete-btn">Delete</span>
+                <DeleteBtn postid={p._id} postTitle={p.title}/>
               </div>
             </>}
         </div>
           <div>
             <div className="post-title">{p.title}</div>
-            <div className="post-tag">{p.categories[0]}</div>
+            <div className="post-tag">
+            {p.categories.map(c  =>(
+              <Link key={c} to={`/search?search=${c}`}>
+              <span className="search-tag">#{c}</span>
+              </Link>
+            ))}
+            
+            </div>
           </div>
 
-        <PostContent desc={p.desc} />
+        <PostContent details={p} />
         
-      </div>
-    </div>
-            ))
-            )
-            
-            
-          }
+      
+    
+            </div></div>
+        )
+        ))
+            }

@@ -29,8 +29,10 @@
 }
 
 .card-title {
-  font-weight: 700;
-  font-size: 25px;
+  font-weight: 500;
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
   margin-top: 10px;
   margin-left: 10px;
   color: rgb(219, 0, 0);

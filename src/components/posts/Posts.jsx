@@ -8,13 +8,11 @@ export default function Posts({posts}) {
     <div className="posts">
       <div className="container">
         <div className="posts-filters">
-          <div className="post-filter chosen">Relevant</div>
-          <div className="post-filter">Latest</div>
-          <div className="post-filter">Top</div>
+          <div className="post-filter chosen">Recent Posts</div>
         </div>
         <div className="post-cards-container">
           {posts?.map(p=>(
-            <Postcard key={p._id} post={p} />
+            <Postcard key={p._id + Math.random()} post={p} />
           ))}
         </div>
         <div className="rm-container">

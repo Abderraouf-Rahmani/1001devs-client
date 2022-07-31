@@ -8,20 +8,19 @@ import { Context } from "../../context/Context";
 
 
 
-const Write = ()=>{
+const Write = ()=>{ 
   const titleRef = useRef()
   const CategoriesRef = useRef()
   const {user} = useContext(Context)
   const [title, setTitle] = useState('');
   const [isLoading, setIsLoading] = useState(true)
   const [post, setPost] = useState([])
-  const [categories, setCategories] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [urlChange, seturlChange] = useState('');
   let editor = null;
   
   const queryParams =new URLSearchParams(window.location.search)
   const postId = queryParams.get("edit")
-  
-  //console.log(postId)
 
     useEffect(()=>{
       if (postId){
@@ -32,10 +31,8 @@ const Write = ()=>{
           const getPostToUpdate = async () => {
             const postToUpdate = await axios.get(`/posts/read/${postId}`)
             setPost(postToUpdate.data)
-            console.log(postToUpdate.data)
           setIsLoading(false)
           titleInput.value = postToUpdate.data.title
-          tagsInput.value = postToUpdate.data.categories
           setCategories(postToUpdate.data.categories)
           setTitle(postToUpdate.data.title)
           }
@@ -46,13 +43,11 @@ const Write = ()=>{
       }
     },[])
     
-    !isLoading && console.log(post.desc[0].blocks[0])
   const onSave = async (e) => {
     e.preventDefault()
     // https://editorjs.io/saving-data
     try {
       const outputData = await editor.save()
-      //console.log('Article data: ', postContent)
       publish(outputData)
     } catch (e) {
       console.log('Saving failed: ', e)
@@ -63,12 +58,16 @@ const Write = ()=>{
     if(isLoading){
       axios.post('/posts/write',{
       username: user.username,
+      userid: user._id,
       title: title.replace('?', ""),
       desc: postBody,
-      categories:categories.replace(/ /g, "").split(',')
+      categories:categories
     }).then((res)=>{
-      //console.log(res)
-      notification('your post has been submited ;)')
+      notification('your post has been submited ;)', 'success')
+      
+      setTimeout(()=>{
+        window.location.replace(`/read/${res.data._id}`)
+      },2300)
     })
   }else{
 
@@ -76,15 +75,150 @@ const Write = ()=>{
       username: user.username,
       title: titleRef.current.value.replace('?', ""),
       desc: postBody,
-      categories:CategoriesRef.current.value.replace(/ /g, "").split(',')
+      categories:categories
     }).then((res)=>{
-      //console.log(res)
-      notification('your post has been updated ;)')
+      
+      notification('your post has been updated ;)', 'success')
+      setTimeout(()=>{
+        window.location.replace(`/read/${res.data._id}`)
+      },2300)
+      
     })
 
   }
   }
+useEffect(()=>{
 
+  const tags = ()=>{
+    let tagsInput = document.getElementById("tags-input");
+let firstInputRegExp = /[a-z0-9]{1}/i;
+let tag = [];
+let tags = !isLoading ? categories : [];
+let TagString = "";
+let tagsLimitNum = 4;
+let tagLength = 25;
+let tagsContainer = document.getElementById("tags-container");
+let tagSpan = document.getElementById("tag-span");
+let tagSpanClose = document.getElementById("tagSpanClose");
+let inputCon = document.getElementById("input-container");
+let isTooLong = false;
+tagsInput.placeholder = `Add up to ${tagsLimitNum} tags...`;
+!isLoading && addToTagSpan(categories);
+
+const say = (msg, msgType) => {
+  let say = document.getElementById("say");
+
+  switch (msgType) {
+    case "error":
+      say.style.color = "red";
+      break;
+    case "success":
+      say.style.color = "green";
+      inputCon.style.outline = "2px solid #79db9d";
+      break;
+    case "alert":
+      say.style.color = "#F7C600";
+      break;
+
+    default:
+      break;
+  }
+
+  say.textContent = msg;
+};
+
+function addToTagSpan(TAGS)  {
+  tagsContainer.innerHTML = "";
+  if (TAGS.length >= 0 && TAGS.length < tagsLimitNum) {
+    tagsInput.placeholder = `Add up to ${tagsLimitNum} tags...`;
+  } else {
+    tagsInput.placeholder = `you've got all the ${tagsLimitNum} tags :)`;
+    say("", "success");
+  }
+  
+  TAGS.forEach((TAG, i) => {
+    let newSpanCon = document.createElement("span");
+    newSpanCon.id = "tag-container";
+    newSpanCon.setAttribute(`data-${i}`, "");
+    let newSpan = document.createElement("span");
+    newSpan.id = "tag-span";
+    let newSpanClose = document.createElement("span");
+    newSpanClose.id = "tagSpanClose";
+
+    newSpanClose.onclick = () => {
+      document.querySelector(`[data-${i}]`).remove();
+      tags.splice(i, 1);
+      addToTagSpan(!isLoading ? categories : tags);
+    };
+
+    newSpan.innerHTML = `<span>#</span> ${TAG}`;
+    newSpanClose.innerHTML = "&#10006;";
+    newSpanCon.appendChild(newSpan);
+    newSpanCon.appendChild(newSpanClose);
+    tagsContainer.appendChild(newSpanCon);
+  });
+};
+
+const handleKeyDown = (e) => {
+  e.preventDefault();
+  let inputType = e.inputType;
+  let input = e.data;
+
+  if (inputType === "deleteContentBackward") {
+    say()
+    if (tags.length > 0 && TagString === "") {
+      tagsInput.value = tags[tags.length - 1];
+      TagString = tagsInput.value;
+      tag = [...TagString];
+      tags.pop();
+      addToTagSpan(!isLoading ? categories : tags);
+      return;
+    }
+    isTooLong = false;
+    tag.pop();
+    TagString = tag.join("");
+    tagsInput.value = TagString;
+  }
+
+  if (tags.length >= tagsLimitNum) {
+    return;
+  }
+
+  if (
+    (inputType === "insertLineBreak" || input === " " || input === ",") &&
+    TagString !== "" &&
+    !isTooLong
+  ) {
+    if (tags.includes(TagString)) {
+      say("you already have this tag", "alert");
+      return;
+    }
+    tags.push(TagString);
+    addToTagSpan(!isLoading ? categories : tags);
+    tagsInput.value = "";
+    tag = [];
+    TagString = "";
+  }
+
+  if (inputType === "insertText") {
+    if (!input.match(firstInputRegExp)) return;
+    if (tag.length <= tagLength -1) {
+      tag.push(input);
+      TagString = tag.join("");
+      tagsInput.value = TagString;
+    } else {
+      say(`a tag can't have more than ${tagLength} characters`, "error");
+      isTooLong = true;
+    }
+  }
+};
+
+tagsInput.addEventListener("beforeinput", handleKeyDown);
+
+  }
+
+  tags()
+},[ isLoading])
   
 
   return (
@@ -108,16 +242,16 @@ const Write = ()=>{
             onChange={e=>setTitle(e.target.value)}
             ref= {titleRef}
           />
-          <input
-            type="text"
-            name="tags"
-            id="tags"
-            className="tags"
-            placeholder="Add up to 4 tags..."
-            onChange={e=>setCategories(e.target.value)}
-            ref= {CategoriesRef}
+         
 
-          />
+          <div className="input-container" id="input-container">
+            <div className="tags-container" id="tags-container"></div>
+            <div className="input-wrapper">
+              <input type="text" id="tags-input" className="tagsInput" />
+            </div>
+          </div>
+          <span id="say"></span>
+
           <div className="editor-input">
 
 
@@ -153,12 +287,7 @@ const Write = ()=>{
           </div>
         </form>
       </div>
-      <div id="notify">
-        <div id="msg-container">
-          placeholder
-        </div>
-        <div className="progress"></div>
-      </div>
+      
     </div>
   );
 }

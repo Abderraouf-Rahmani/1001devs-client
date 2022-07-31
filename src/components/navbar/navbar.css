@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  position: sticky;
+  position: sticky; 
   top: 0px;
   z-index: 999;
   background-color: var(--bg-dark);
@@ -154,7 +154,22 @@
   .responsive-search-icon {
     display: block;
   }
-  .create-post-btn {
+  .create-post-btn > span {
     display: none;
+  }
+
+  .create-post-btn{
+    height: 21px;
+    width: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .create-post-btn::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 600;
+    height: fit-content;
   }
 }

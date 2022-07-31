@@ -10,7 +10,11 @@ export default function Postcard({post}) {
     <Link to={`/read/${post._id}`} >
       <div className="post-card">
         <div className="card-header">
-          <div className="card-title">{post.categories[0]}</div>
+          <div className="card-title">
+              {post.categories.map(c  =>(
+                <span key={c} className="search-tag">#{c}</span>
+              ))}
+          </div>
           <div className="card-date">{`${day}, ${monthShort[parseInt(month)]} ${year}`}</div>
         </div>
         <div className="card-desc-container">

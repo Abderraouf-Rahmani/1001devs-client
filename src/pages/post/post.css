@@ -8,15 +8,16 @@
 
 .post-details{
     display: flex;
-    gap: 20px;
-    margin-bottom: 50px;
+   
 }
 
 .post-tag{
-    font-size: 18px;
-    color: rgb(165, 60, 60);
-    font-weight: 600;
+    font-size: 15px;
+    color: rgb(55, 55, 55);
     margin-bottom: 90px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .post-title{

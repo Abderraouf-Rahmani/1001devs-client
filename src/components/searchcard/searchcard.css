@@ -80,6 +80,11 @@
     gap: 8px;
     font-size: 13px;
 }
+.sub-infos {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+}
 .search-tag{
     cursor: pointer;
 

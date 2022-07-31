@@ -7,7 +7,7 @@ import './search.css'
 
 export default function Search() {
   const queryParams =new URLSearchParams(window.location.search)
-  const searchString = queryParams.get("search")
+  let searchString = queryParams.get("search")
   const location = useLocation();
   const [isFetching, setIsFetching] = useState(true)
   const [posts, setPosts] = useState([])
@@ -15,14 +15,21 @@ export default function Search() {
   useEffect(()=>{
     const fetchPosts = async ()=>{
       setIsFetching(true)
-      const res = await axios.get(`/posts/search/${searchString}`)
-      setPosts(res?.data)
+      let res;
+      if (searchString){
+
+         res = await axios.get(`/posts/search/${searchString}`)
+      }else{
+         res = await axios.get('/posts')
+      }
+      
+      setPosts(res?.data) 
       setIsFetching(false)
         
     }
     fetchPosts()
-  },[])
-  if(!isFetching) {console.log(posts)}
+  },[searchString])
+
   return (
     <div className="search-page">
       <div className="search-header">
@@ -31,21 +38,15 @@ export default function Search() {
           
         </div>
 
-      </div>
-        <div className="search-header">
           {location.pathname === '/explore' ? (<><h3 className="search-string">Explore</h3></>) : (<><h3 className="search-string">Search results for "{searchString}" </h3></>)}
             
-            <div className="posts-filters">
-                <div className="post-filter chosen">Relevant</div>
-                <div className="post-filter">Latest</div>
-                <div className="post-filter">Top</div>
-            </div>
+            
         </div>
         <div className="search-container">
            {(posts.length === 0 && !isFetching) &&<> <div>No results match that query</div> <img src='https://cdni.iconscout.com/illustration/premium/thumb/folder-is-empty-4064360-3363921.png' /> </>}
             {!isFetching && (posts.map(p=>(
 
-            <SearchCard key={p._id}  title={p.title} username={p.username} categories={p.categories} t={p.createdAt} id={p._id} />
+            <SearchCard key={p._id + Math.random()} userid={p.userid} title={p.title} username={p.username} categories={p.categories} t={p.createdAt} id={p._id} />
             )))}
             
         </div>
