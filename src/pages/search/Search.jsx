@@ -18,9 +18,9 @@ export default function Search() {
       let res;
       if (searchString){
 
-         res = await axios.get(`/posts/search/${searchString}`)
+         res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts/search/${searchString}`)
       }else{
-         res = await axios.get('/posts')
+         res = await axios.get('https://1001devs.arabickitchenis.life/api/posts')
       }
       
       setPosts(res?.data) 

@@ -15,7 +15,7 @@ export default function Register() {
     setError(false)
     try{
 
-      const res = await axios.post('/auth/register', {
+      const res = await axios.post('https://1001devs.arabickitchenis.life/api/auth/register', {
         username,
         email,
         password

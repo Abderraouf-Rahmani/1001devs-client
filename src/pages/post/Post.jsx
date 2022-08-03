@@ -14,7 +14,7 @@ export default function Post() {
 
   const [isLoading, setIsLoading] = useState(true)
   const postId = useParams();
-  const GET_POST_URL = `/posts/read/${postId.id}/`
+  const GET_POST_URL = `https://1001devs.arabickitchenis.life/api/posts/read/${postId.id}/`
   const [post, setPost] = useState(undefined)
 
   useEffect(()=>{

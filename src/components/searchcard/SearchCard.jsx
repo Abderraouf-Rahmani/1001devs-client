@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import './searchcard.css'
-import image from '../../img/Troll-face.png'
 import Pic from '../pic/Pic.jsx'
 import formatDate from '../../util/toFormatedDate'
 import { Link, useLocation } from 'react-router-dom'

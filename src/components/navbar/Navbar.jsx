@@ -1,6 +1,5 @@
 import "./navbar.css";
 import image from "../../img/logo.png";
-import profilePic from "../../img/Troll-face.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/SearchBar";
 import SearchIcon from '@mui/icons-material/Search';

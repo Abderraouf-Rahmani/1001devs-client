@@ -29,7 +29,7 @@ const Write = ()=>{
           const titleInput = document.getElementById('title')
           const tagsInput = document.getElementById('tags')
           const getPostToUpdate = async () => {
-            const postToUpdate = await axios.get(`/posts/read/${postId}`)
+            const postToUpdate = await axios.get(`https://1001devs.arabickitchenis.life/api/posts/read/${postId}`)
             setPost(postToUpdate.data)
           setIsLoading(false)
           titleInput.value = postToUpdate.data.title
@@ -56,7 +56,7 @@ const Write = ()=>{
 
   const publish = (postBody)=>{
     if(isLoading){
-      axios.post('/posts/write',{
+      axios.post('https://1001devs.arabickitchenis.life/api/posts/write',{
       username: user.username,
       userid: user._id,
       title: title.replace('?', ""),
@@ -71,7 +71,7 @@ const Write = ()=>{
     })
   }else{
 
-    axios.put(`/posts/${postId}`,{
+    axios.put(`https://1001devs.arabickitchenis.life/api/posts/${postId}`,{
       username: user.username,
       title: titleRef.current.value.replace('?', ""),
       desc: postBody,
