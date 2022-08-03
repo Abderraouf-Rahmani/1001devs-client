@@ -1,5 +1,4 @@
 import React, {useContext, useRef} from "react";
-import image from "./../../img/Troll-face.png"
 import "./settings.css";
 import { Context } from "../../context/Context";
 
@@ -18,7 +17,7 @@ export default function Settings() {
     e.preventDefault()
 
     try{
-     const update = await axios.put(`/users/${user._id}`,{
+     const update = await axios.put(`https://1001devs.arabickitchenis.life/api/users/${user._id}`,{
       name: name.current.value,
       username: username.current.value,
       email: email.current.value,

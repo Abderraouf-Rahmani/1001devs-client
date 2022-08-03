@@ -9,7 +9,7 @@ export default function DeleteBtn({postid, postTitle}) {
     const handleDelete = async ()=>{
        if(!window.confirm(`Are you sure you want to delete this post?\n${postTitle}`)) return
        try{
-        await axios.delete(`/posts/${postid}`, {
+        await axios.delete(`https://1001devs.arabickitchenis.life/api/posts/${postid}`, {
             data: {username: user.username}
            })
            notification('your post has been deleted', 'success')

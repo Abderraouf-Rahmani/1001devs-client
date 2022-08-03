@@ -3,7 +3,6 @@ import "./footer.css"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import SideNav from '../sidenave/SideNav';
 import { Link } from 'react-router-dom';
 
 
