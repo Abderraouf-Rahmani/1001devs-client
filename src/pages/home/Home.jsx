@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(()=>{
     const fetchPosts = async ()=>{
-      const res = await axios.get(`/posts?limit=${8}`)
+      const res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts?limit=${8}`)
       setPosts(res?.data)
     }
     fetchPosts()
