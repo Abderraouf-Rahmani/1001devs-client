@@ -57,6 +57,15 @@ const Write = () => {
   };
 
   const publish = (postBody) => {
+    if (titleRef.current.value === '' || categories === []) {
+      notification(
+        "Don't forget to provide your post with a title and some tags",
+        'alert'
+      );
+      return;
+    }
+
+    categories;
     if (isLoading) {
       setIsFetching(true);
       axios
