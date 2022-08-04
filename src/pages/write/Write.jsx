@@ -9,14 +9,12 @@ import { Context } from '../../context/Context';
 
 const Write = () => {
   const titleRef = useRef();
-  const CategoriesRef = useRef();
   const { user } = useContext(Context);
   const [title, setTitle] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isFetching, setIsFetching] = useState(false);
   const [post, setPost] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [urlChange, seturlChange] = useState('');
   let editor = null;
 
   const queryParams = new URLSearchParams(window.location.search);
@@ -48,13 +46,6 @@ const Write = () => {
   const onSave = async (e) => {
     e.preventDefault();
     // https://editorjs.io/saving-data
-    if (titleRef.current.value === '') {
-      notification(
-        'Please provide your post with a title and some tags',
-        'alert'
-      );
-      return;
-    }
     try {
       const outputData = await editor.save();
       publish(outputData);
@@ -251,7 +242,6 @@ const Write = () => {
             placeholder="New post title here..."
             onChange={(e) => setTitle(e.target.value)}
             ref={titleRef}
-            required
           />
 
           <div className="input-container" id="input-container">
@@ -287,12 +277,7 @@ const Write = () => {
             )}
           </div>
           <div className="post-btns">
-            <button
-              onClick={onSave}
-              className="publish-btn btn"
-              type="submit"
-              disabled={isFetching}
-            >
+            <button onClick={onSave} className="publish-btn btn" type="submit">
               {isFetching ? (
                 <span className="loader">
                   <RefreshRoundedIcon />
