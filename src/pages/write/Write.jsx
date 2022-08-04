@@ -244,6 +244,7 @@ const Write = () => {
             placeholder="New post title here..."
             onChange={(e) => setTitle(e.target.value)}
             ref={titleRef}
+            required
           />
 
           <div className="input-container" id="input-container">
