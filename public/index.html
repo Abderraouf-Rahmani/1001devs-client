@@ -40,6 +40,21 @@
         padding: 0;
         text-decoration: none;
       }
+
+      .loader {
+        animation: loading 1s linear infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @keyframes loading {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
       a {
         color: unset;
       }
@@ -50,63 +65,78 @@
       pre > code {
         font-family: 'Consolas', monospace;
       }
-      #notify{
-  width: 300px;
-  color: rgb(246, 245, 245);
-  border-radius: 5px;
-  overflow: hidden;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  animation-name: notification;
-  animation-duration: 2.5s;
-  animation-timing-function: ease-in-out;
-  display: none;
-  flex-direction: column;
-  font-weight: 600;
-  opacity: 0;
-}
+      #notify {
+        width: 300px;
+        color: rgb(246, 245, 245);
+        border-radius: 5px;
+        overflow: hidden;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        animation-name: notification;
+        animation-duration: 2.5s;
+        animation-timing-function: ease-in-out;
+        display: none;
+        flex-direction: column;
+        font-weight: 600;
+        opacity: 0;
+      }
 
-@keyframes notification {
-  0% {transform: translateX(-320px);opacity: 1;}
-  18% {transform: translateX(20px);}
-  19% {transform: translateX(-15px);}
-  20% {transform: translateX(0px);}
-  90% {opacity: 1;}
-  100% {opacity: 0;}
-}
+      @keyframes notification {
+        0% {
+          transform: translateX(-320px);
+          opacity: 1;
+        }
+        18% {
+          transform: translateX(20px);
+        }
+        19% {
+          transform: translateX(-15px);
+        }
+        20% {
+          transform: translateX(0px);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-#msg-container{
-display: flex;
-align-items: center;
-justify-content: center;
-align-self: center;
-padding: 15px 0px;
-z-index: 999;
-}
-#progress{
-  position: absolute;
-  height: 100%;
-  width: 0%;
-  border-radius: 2px;
-  animation-name: progressbar;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-}
+      #msg-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        padding: 15px 0px;
+        z-index: 999;
+      }
+      #progress {
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        border-radius: 2px;
+        animation-name: progressbar;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+      }
 
-@keyframes progressbar {
-  0% {width: 0%;}
-  100% {width: 100%;}
-}
+      @keyframes progressbar {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
     </style>
     <title>Blog App</title>
   </head>
   <body>
     <div id="root"></div>
     <div id="notify">
-      <div id="msg-container">
-        placeholder
-      </div>
+      <div id="msg-container">placeholder</div>
       <div id="progress"></div>
     </div>
   </body>
