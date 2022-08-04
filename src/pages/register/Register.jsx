@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import '../../pages/login/login.css'
 import axios from "axios"
 import { Link } from "react-router-dom";
-
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 
 export default function Register() {
   const [username, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
-
+  const [isPosting, setIsPosting] = useState(false)
   const handleSubmit = async (e)=>{
     e.preventDefault()
     setError(false)
+    setIsPosting(true)
     try{
 
       const res = await axios.post('https://1001devs.arabickitchenis.life/api/auth/register', {
@@ -20,6 +21,8 @@ export default function Register() {
         email,
         password
       })
+    setIsPosting(false)
+
       res.data && window.location.replace('/login');
     }catch(err){
      setError(true)
@@ -35,7 +38,7 @@ export default function Register() {
             <input type="text" name='username' id="username" placeholder='username' onChange={(e)=> setUserName(e.target.value)} required/>
             <input type="email" name='email' id="email" placeholder='email' onChange={(e)=> setEmail(e.target.value)} required/>
             <input type="password" name='password' id="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} required/>
-            <button type="submit" className='login-btn'>Register</button>
+            <button type="submit" className='login-btn'> {isPosting ? <span className='loader'><RefreshRoundedIcon /></span> : "Register"} </button>
             <span className='UX-msg'>you already have an account? <Link to='/login'><span className='link'>login »</span></Link></span>
         </form>
     </div>

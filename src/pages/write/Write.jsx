@@ -5,6 +5,7 @@ import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
 import notification from "../../util/utils";
 import { Context } from "../../context/Context";
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 
 
 
@@ -14,6 +15,7 @@ const Write = ()=>{
   const {user} = useContext(Context)
   const [title, setTitle] = useState('');
   const [isLoading, setIsLoading] = useState(true)
+  const [isPosting, setIsPosting] = useState(false)
   const [post, setPost] = useState([])
   const [categories, setCategories] = useState([]);
   const [urlChange, seturlChange] = useState('');
@@ -55,6 +57,7 @@ const Write = ()=>{
   }
 
   const publish = (postBody)=>{
+    setIsPosting(true)
     if(isLoading){
       axios.post('https://1001devs.arabickitchenis.life/api/posts/write',{
       username: user.username,
@@ -64,12 +67,14 @@ const Write = ()=>{
       categories:categories
     }).then((res)=>{
       notification('your post has been submited ;)', 'success')
+    setIsPosting(false)
       
       setTimeout(()=>{
         window.location.replace(`/read/${res.data._id}`)
       },2300)
     })
   }else{
+    setIsPosting(true)
 
     axios.put(`https://1001devs.arabickitchenis.life/api/posts/${postId}`,{
       username: user.username,
@@ -77,6 +82,7 @@ const Write = ()=>{
       desc: postBody,
       categories:categories
     }).then((res)=>{
+    setIsPosting(false)
       
       notification('your post has been updated ;)', 'success')
       setTimeout(()=>{
@@ -135,7 +141,7 @@ function addToTagSpan(TAGS)  {
     tagsInput.placeholder = `you've got all the ${tagsLimitNum} tags :)`;
     say("", "success");
   }
-  
+  setCategories(TAGS)
   TAGS.forEach((TAG, i) => {
     let newSpanCon = document.createElement("span");
     newSpanCon.id = "tag-container";
@@ -281,7 +287,7 @@ tagsInput.addEventListener("beforeinput", handleKeyDown);
             <button
             onClick={onSave}
             className="publish-btn btn" type="submit">
-              Publish
+              {isPosting ? <span className='loader'><RefreshRoundedIcon /></span> : 'Publish'} 
             </button>
            
           </div>
