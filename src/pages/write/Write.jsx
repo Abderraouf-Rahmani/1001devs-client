@@ -57,9 +57,9 @@ const Write = () => {
   };
 
   const publish = (postBody) => {
-    if (titleRef.current.value === '' || categories === []) {
+    if (titleRef.current.value === '') {
       notification(
-        "Don't forget to provide your post with a title and some tags",
+        'Please provide your post with a title and some tags',
         'alert'
       );
       return;
