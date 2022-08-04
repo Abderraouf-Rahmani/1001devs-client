@@ -1,11 +1,10 @@
-import Embed from '@editorjs/embed'
-import List from '@editorjs/list'
-import Code from '@editorjs/code'
-import LinkTool from '@editorjs/link'
-import Header from '@editorjs/header'
-import CheckList from '@editorjs/checklist'
-import InlineCode from '@editorjs/inline-code'
-import SimpleImage from '@editorjs/simple-image'
+import Embed from '@editorjs/embed';
+import List from '@editorjs/list';
+import Code from '@editorjs/code';
+import LinkTool from '@editorjs/link';
+import Header from '@editorjs/header';
+import InlineCode from '@editorjs/inline-code';
+import SimpleImage from '@editorjs/simple-image';
 
 export const EDITOR_JS_TOOLS = {
   // NOTE: Paragraph is default tool. Declare only when you want to change paragraph option.
@@ -15,7 +14,6 @@ export const EDITOR_JS_TOOLS = {
   code: Code,
   linkTool: LinkTool,
   header: Header,
-  checklist: CheckList,
   inlineCode: InlineCode,
   simpleImage: SimpleImage,
-}
+};
