@@ -65,7 +65,6 @@ const Write = () => {
       return;
     }
 
-    categories;
     if (isLoading) {
       setIsFetching(true);
       axios
