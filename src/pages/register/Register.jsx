@@ -63,7 +63,7 @@ export default function Register() {
           required
         />
         <button type="submit" className="login-btn" disabled={isLoading}>
-          {isFetching ? (
+          {isLoading ? (
             <span className="loader">
               <RefreshRoundedIcon />
             </span>
