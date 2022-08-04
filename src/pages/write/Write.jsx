@@ -48,6 +48,13 @@ const Write = () => {
   const onSave = async (e) => {
     e.preventDefault();
     // https://editorjs.io/saving-data
+    if (titleRef.current.value === '') {
+      notification(
+        'Please provide your post with a title and some tags',
+        'alert'
+      );
+      return;
+    }
     try {
       const outputData = await editor.save();
       publish(outputData);
@@ -57,14 +64,6 @@ const Write = () => {
   };
 
   const publish = (postBody) => {
-    if (titleRef.current.value === '') {
-      notification(
-        'Please provide your post with a title and some tags',
-        'alert'
-      );
-      return;
-    }
-
     if (isLoading) {
       setIsFetching(true);
       axios
