@@ -57,6 +57,12 @@ const Write = ()=>{
   }
 
   const publish = (postBody)=>{
+    let titleArr = titleRef.current.value.split(' ')
+    let filterResults = titleArr.filter(word=>word.length <= 15)
+    if(filterResults.length < titleArr.length){
+      notification('word length in title is > 16', 'error');
+      return
+    }
     if(isLoading){
       setIsPosting(true)
       axios.post('https://1001devs.arabickitchenis.life/api/posts/write',{
