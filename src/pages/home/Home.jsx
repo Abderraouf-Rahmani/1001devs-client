@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(()=>{
     setIsFetching(true)
     const fetchPosts = async ()=>{
-      const res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts?limit=${8}`)
+      const res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts`)
       setPosts(res?.data)
     setIsFetching(false)
       
