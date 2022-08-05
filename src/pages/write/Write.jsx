@@ -5,6 +5,7 @@ import EditorJs from '@natterstefan/react-editor-js'
 import { EDITOR_JS_TOOLS } from "./tools";
 import notification from "../../util/utils";
 import { Context } from "../../context/Context";
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 
 
 
@@ -14,6 +15,7 @@ const Write = ()=>{
   const {user} = useContext(Context)
   const [title, setTitle] = useState('');
   const [isLoading, setIsLoading] = useState(true)
+  const [isPosting, setIsPosting] = useState(false)
   const [post, setPost] = useState([])
   const [categories, setCategories] = useState([]);
   const [urlChange, seturlChange] = useState('');
@@ -56,6 +58,7 @@ const Write = ()=>{
 
   const publish = (postBody)=>{
     if(isLoading){
+      setIsPosting(true)
       axios.post('https://1001devs.arabickitchenis.life/api/posts/write',{
       username: user.username,
       userid: user._id,
@@ -64,13 +67,13 @@ const Write = ()=>{
       categories:categories
     }).then((res)=>{
       notification('your post has been submited ;)', 'success')
-      
+      setIsPosting(false)
       setTimeout(()=>{
         window.location.replace(`/read/${res.data._id}`)
       },2300)
     })
   }else{
-
+setIsPosting(true)
     axios.put(`https://1001devs.arabickitchenis.life/api/posts/${postId}`,{
       username: user.username,
       title: titleRef.current.value.replace('?', ""),
@@ -79,6 +82,8 @@ const Write = ()=>{
     }).then((res)=>{
       
       notification('your post has been updated ;)', 'success')
+      setIsPosting(false)
+      
       setTimeout(()=>{
         window.location.replace(`/read/${res.data._id}`)
       },2300)
@@ -284,7 +289,7 @@ tagsInput.addEventListener("beforeinput", handleKeyDown);
             <button
             onClick={onSave}
             className="publish-btn btn" type="submit">
-              Publish
+              {isPosting ? <span className='loader'><RefreshRoundedIcon /></span> : "Publish"}
             </button>
            
           </div>

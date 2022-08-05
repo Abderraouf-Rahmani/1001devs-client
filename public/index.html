@@ -130,6 +130,22 @@
           width: 100%;
         }
       }
+
+      .loader {
+  animation: loading 1s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes loading {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+  }
+}
+      
     </style>
     <title>Blog App</title>
   </head>
