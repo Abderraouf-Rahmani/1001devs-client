@@ -128,6 +128,7 @@ const say = (msg, msgType) => {
 };
 
 function addToTagSpan(TAGS)  {
+  
   tagsContainer.innerHTML = "";
   if (TAGS.length >= 0 && TAGS.length < tagsLimitNum) {
     tagsInput.placeholder = `Add up to ${tagsLimitNum} tags...`;
@@ -135,6 +136,8 @@ function addToTagSpan(TAGS)  {
     tagsInput.placeholder = `you've got all the ${tagsLimitNum} tags :)`;
     say("", "success");
   }
+  
+  setCategories(TAGS);
   
   TAGS.forEach((TAG, i) => {
     let newSpanCon = document.createElement("span");
