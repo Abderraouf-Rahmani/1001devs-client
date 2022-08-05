@@ -2,6 +2,7 @@
   background-color: var(--bg-dark);
   border: 1px solid lightgrey;
   min-width: 300px;
+  max-width: 301px;
   height: 300px;
   transition: 0.04s;
   margin: -1px;
