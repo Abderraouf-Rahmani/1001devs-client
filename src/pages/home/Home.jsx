@@ -23,7 +23,7 @@ export default function Home() {
       <div className='home'>
       
       <Header />
-      {isFetching ? <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-3.gif" alt="Loading" />: <Posts posts={posts} />}
+      {isFetching ? <div className='container'>  <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-3.gif" alt="Loading" /></div>: <Posts posts={posts} />}
      
       </div>
   )
