@@ -31,6 +31,9 @@
 .post-content{
     font-family: 'Poppins', sans-serif !important;
     font-size: 19px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 4px;
    
 }
 
@@ -67,7 +70,20 @@
     margin-bottom: 20px;
 }
 
+.post-content > h2 {
+    margin-bottom: 20px;
+}
 
+.post-content a {
+    color: blueviolet;
+    font-style: italic;
+}
+.post-content a:hover {
+    text-decoration: underline;
+}
+.post-content a:focus {
+    color: red;
+}
 
 .post-header{
     margin-bottom: 20px;

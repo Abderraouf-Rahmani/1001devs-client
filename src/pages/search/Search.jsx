@@ -43,7 +43,9 @@ export default function Search() {
             
         </div>
         <div className="search-container">
+          {isFetching && <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-3.gif" alt="Loading" }
            {(posts.length === 0 && !isFetching) &&<> <div>No results match that query</div> <img src='https://cdni.iconscout.com/illustration/premium/thumb/folder-is-empty-4064360-3363921.png' /> </>}
+          
             {!isFetching && (posts.map(p=>(
 
             <SearchCard key={p._id + Math.random()} userid={p.userid} title={p.title} username={p.username} categories={p.categories} t={p.createdAt} id={p._id} />

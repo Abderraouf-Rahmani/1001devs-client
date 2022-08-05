@@ -7,11 +7,15 @@ import "./home.css"
 export default function Home() {
 
   const [posts, setPosts] = useState([])
+  const [isFetching, setIsFetching] = useState(true)
 
   useEffect(()=>{
+    setIsFetching(true)
     const fetchPosts = async ()=>{
       const res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts?limit=${8}`)
       setPosts(res?.data)
+    setIsFetching(false)
+      
     }
     fetchPosts()
   },[])
@@ -19,7 +23,7 @@ export default function Home() {
       <div className='home'>
       
       <Header />
-      <Posts posts={posts} />
+      {isFetching ? <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-3.gif" alt="Loading" : <Posts posts={posts} />}
      
       </div>
   )
