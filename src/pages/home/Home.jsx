@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(()=>{
     setIsFetching(true)
     const fetchPosts = async ()=>{
-      const res = await axios.get(`https://1001devs.arabickitchenis.life/api/posts`)
+      const res = await axios.get(`https://backend1001-j96459ip9-abderraouf-rahmani.vercel.app/api/posts`)
       setPosts(res?.data)
     setIsFetching(false)
       
