@@ -287,7 +287,7 @@ tagsInput.addEventListener("beforeinput", handleKeyDown);
             editor = editorInstance
           }}/>) }
 
-
+<div className="custom-editor-container"></div>
 
           </div>
           <div className="post-btns">
