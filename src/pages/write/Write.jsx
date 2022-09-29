@@ -145,7 +145,7 @@ function addToTagSpan(TAGS)  {
     tagsInput.placeholder = `Add up to ${tagsLimitNum} tags...`;
   } else {
     tagsInput.placeholder = `you've got all the ${tagsLimitNum} tags :)`;
-    say("", "success");
+    // say("", "success");
   }
   
   setCategories(TAGS);
