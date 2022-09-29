@@ -14,7 +14,7 @@ const   {dispatch, isFetching } = useContext(Context)
     dispatch({type: "LOGIN_START"})
  
     try { 
-      const res = await axios.post("https://1001devs.arabickitchenis.life/api/auth/login", {
+      const res = await axios.post("https://backend1001.vercel.app/api/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value
       });

@@ -17,7 +17,7 @@ export default function Settings() {
     e.preventDefault()
 
     try{
-     const update = await axios.put(`https://1001devs.arabickitchenis.life/api/users/${user._id}`,{
+     const update = await axios.put(`https://backend1001.vercel.app/api/users/${user._id}`,{
       name: name.current.value,
       username: username.current.value,
       email: email.current.value,

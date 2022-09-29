@@ -31,7 +31,7 @@ const Write = ()=>{
           const titleInput = document.getElementById('title')
           const tagsInput = document.getElementById('tags')
           const getPostToUpdate = async () => {
-            const postToUpdate = await axios.get(`https://1001devs.arabickitchenis.life/api/posts/read/${postId}`)
+            const postToUpdate = await axios.get(`https://backend1001.vercel.app/api/posts/read/${postId}`)
             setPost(postToUpdate.data)
           setIsLoading(false)
           titleInput.value = postToUpdate.data.title
@@ -65,7 +65,7 @@ const Write = ()=>{
     }
     if(isLoading){
       setIsPosting(true)
-      axios.post('https://1001devs.arabickitchenis.life/api/posts/write',{
+      axios.post('https://backend1001.vercel.app/api/posts/write',{
       username: user.username,
       userid: user._id,
       title: title.replace('?', ""),
@@ -80,7 +80,7 @@ const Write = ()=>{
     })
   }else{
 setIsPosting(true)
-    axios.put(`https://1001devs.arabickitchenis.life/api/posts/${postId}`,{
+    axios.put(`https://backend1001.vercel.app/api/posts/${postId}`,{
       username: user.username,
       title: titleRef.current.value.replace('?', ""),
       desc: postBody,

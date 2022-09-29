@@ -22,8 +22,8 @@ export default function Profile() {
   useEffect(()=> {
     setIsFetching(true)
     const getUser = async ()=>{
-      const User = await axios.get(`https://1001devs.arabickitchenis.life/api/users/${URL_USER_ID}`)
-      const posts = await axios.get(`https://1001devs.arabickitchenis.life/api/posts/?user=${await User.data.username}`, {
+      const User = await axios.get(`https://backend1001.vercel.app/api/users/${URL_USER_ID}`)
+      const posts = await axios.get(`https://backend1001.vercel.app/api/posts/?user=${await User.data.username}`, {
         user: profile.username
       })
       setProfile(User.data)

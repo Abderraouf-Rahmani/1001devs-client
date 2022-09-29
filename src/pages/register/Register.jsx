@@ -16,7 +16,7 @@ export default function Register() {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        'https://1001devs.arabickitchenis.life/api/auth/register',
+        'https://backend1001.vercel.app/api/auth/register',
         {
           username,
           email,
