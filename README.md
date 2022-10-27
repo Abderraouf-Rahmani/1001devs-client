@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+<div align='center' >
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Project Logo](https://www.abderraouf-rahmani.dev/images/logos/1001devs-logo.png)
+</div>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## About The Project
+1001DEVS is a publishing platform for developers and tech enthusiast.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Built With:
+- [React](https://reactjs.org/)
+- [Vanilla Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [ExpressJs](https://expressjs.com/)
+- [Node](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [MongooseJs](https://mongoosejs.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Getting Started
+📍 Before moving forward, please note that this repo is only for the front-end of this project you can visit the back-end [here](https://github.com/Abderraouf-Rahmani/1001devs-api).
+#### Prerequisites
+To run this project on your local machine make sure you have the latest package manager installed:
+```sh
+  npm install npm@latest -g
+  ```
+#### Installation
+1. clone the repo:
+```sh
+   git clone https://github.com/Abderraouf-Rahmani/1001devs-client.git
+```
+2.  Install NPM packages
+   ```sh
+   npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Run the development server
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-### `npm run eject`
+## Roadmap
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [x] Make the website responsive
+- [x] Add a notification system.
+- [ ] Update the markdown editor to support images.
+- [ ] Add Email notifications functionality.
+- [ ] Add a filter to sort search results by relevance and post date.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact
+Feel free to connect with me on [Linkedin](https://www.linkedin.com/in/a-rahmani/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Acknowledgments
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project made possible because a [tutorial](https://www.youtube.com/watch?v=tlTdbc5byAs) I watched on a youtube channel called [LamaDev](https://www.youtube.com/c/LamaDev), I just gave the front-end a better styling.
